@@ -1,21 +1,18 @@
----
 version: 2.1
 orbs:
   java-build:
     description: Orb for building Java Application
-    jobs:
-      - build:
-          executor: java-executor
+jobs:
+  build:
+    executor: java-executor
     executors:
       java-executor:
         docker:
           - image: cimg/openjdk:11.0.12
-    commands:
-      build:
-        steps:
-          - checkout
-          - run:
-              name: Build Java Application
-              command: |
-                # build command
-                ./gradlew clean build
+    steps:
+      - checkout
+      - run:
+          name: Build Java Application
+          command: |
+            # build command
+            ./gradlew clean build
