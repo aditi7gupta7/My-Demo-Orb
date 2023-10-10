@@ -1,0 +1,20 @@
+version: 2.1
+orbs:
+  java-build:
+    description: Orb for building Java Application
+    jobs:
+      - build:
+          executor: java-executor
+    executors:
+      java-executor:
+        docker:
+          - image: circleci/openjdk:11
+    commands:
+      build:
+        steps:
+          - checkout
+          - run:
+              name: Build Java Application
+              command: |
+                # build command
+                ./mvnw clean install
