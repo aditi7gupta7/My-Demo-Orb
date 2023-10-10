@@ -8,7 +8,7 @@ orbs:
     executors:
       java-executor:
         docker:
-          - image: circleci/openjdk:11
+          - image: cimg/openjdk:11.0.12
     commands:
       build:
         steps:
@@ -17,4 +17,4 @@ orbs:
               name: Build Java Application
               command: |
                 # build command
-                ./mvnw clean install
+                ./gradlew clean build
